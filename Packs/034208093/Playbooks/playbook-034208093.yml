@@ -1,0 +1,148 @@
+contentitemexportablefields:
+  contentitemfields:
+    definitionid: ""
+    fromServerVersion: ""
+    itemVersion: ""
+    packID: 9c4f6ac4-6c0b-432e-8979-008da881875d
+    packName: "034208093"
+    prevname: ""
+    propagationLabels:
+    - all
+    toServerVersion: ""
+description: Palo Case 034208093
+id: 9fc07bdb-e054-4bc3-8dbe-88d688851a15
+inputs: []
+name: "034208093"
+outputs: []
+starttaskid: "0"
+tasks:
+  "0":
+    continueonerrortype: ""
+    id: "0"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "2"
+    note: false
+    quietmode: 0
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: ""
+      id: 3b6b89f2-7b18-4b60-8f4c-ce1f87cf9c2c
+      iscommand: false
+      name: ""
+      version: -1
+    taskid: 3b6b89f2-7b18-4b60-8f4c-ce1f87cf9c2c
+    timertriggers: []
+    type: start
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 50
+        }
+      }
+  "1":
+    continueonerrortype: ""
+    id: "1"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    note: false
+    quietmode: 0
+    scriptarguments:
+      body:
+        simple: 
+      bodyType:
+        simple: HTML
+      importance:
+        simple: High
+      subject:
+        simple: XSOAR Case Creation Notification
+      to:
+        simple: email@test.com
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: MicrosoftGraphMail
+      description: Sends an email using Microsoft Graph.
+      id: 5d2318d0-6ac1-4bb5-8f19-a377f8c82d6e
+      iscommand: true
+      name: Notify CSIRT Distro
+      script: MicrosoftGraphMail|||send-mail
+      type: regular
+      version: -1
+    taskid: 5d2318d0-6ac1-4bb5-8f19-a377f8c82d6e
+    timertriggers: []
+    type: regular
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 370
+        }
+      }
+  "2":
+    continueonerrortype: ""
+    id: "2"
+    ignoreworker: false
+    isautoswitchedtoquietmode: false
+    isoversize: false
+    nexttasks:
+      '#none#':
+      - "1"
+    note: false
+    quietmode: 0
+    scriptarguments:
+      contextKey:
+        simple: 
+      text:
+        simple: |-
+          ### A new case has been created and assigned to CSIRT.
+
+          Case Name: ys test 11
+
+          Creation Time: 
+
+          Case Type: Pull Request Creation
+
+          Case Severity: 0
+
+          Case Link: https://im-xsoar.wal-mart.com/#/Custom/caseinfoid/8690
+    separatecontext: false
+    skipunavailable: false
+    task:
+      brand: Builtin
+      description: commands.local.cmd.mdToHTML
+      id: 828853c4-0c10-40bb-87fe-7fc7a27ed3cc
+      iscommand: true
+      name: Format e-mail body
+      script: Builtin|||mdToHtml
+      type: regular
+      version: -1
+    taskid: 828853c4-0c10-40bb-87fe-7fc7a27ed3cc
+    timertriggers: []
+    type: regular
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 195
+        }
+      }
+version: -1
+view: |-
+  {
+    "linkLabelsPosition": {},
+    "paper": {
+      "dimensions": {
+        "height": 415,
+        "width": 380,
+        "x": 50,
+        "y": 50
+      }
+    }
+  }
